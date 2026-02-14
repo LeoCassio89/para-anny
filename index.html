@@ -6,18 +6,49 @@
     <title>Para mi niña Anny ❤️</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #ffe5ec; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #d62828; overflow-x: hidden; }
+        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #ffd1dc, #ffe5ec); margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #d62828; overflow-x: hidden; }
         .container { text-align: center; padding: 20px; width: 100%; max-width: 400px; box-sizing: border-box; }
         .section { display: none; animation: fadeIn 0.5s ease-in-out; }
         .active { display: block; }
         
-        button { background-color: #ff4d6d; color: white; border: none; padding: 15px 25px; font-size: 1.1rem; border-radius: 50px; cursor: pointer; margin: 10px auto; display: block; width: 80%; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .btn-small { width: auto; display: inline-block; padding: 10px 20px; font-size: 0.9rem; }
+        body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to top, #ffffff, #ff8fab);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #d62828;
+    overflow-x: hidden;
+}
+        button {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: block;
+    width: 80%;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+}
+
 
         .bounce-img { animation: breathing 1.5s ease-in-out infinite; margin-bottom: 20px; border-radius: 20px; }
         @keyframes breathing { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
 
-        .photo-grid img { width: 95%; border-radius: 15px; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .photo-grid img {
+    width: 90%;
+    border-radius: 15px;
+    padding: 8px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    margin-bottom: 15px;
+}
         
         /* Estilo para el link de Spotify */
         .spotify-link { background-color: #1DB954; color: white; text-decoration: none; padding: 15px; border-radius: 50px; display: block; margin: 20px auto; font-weight: bold; width: 80%; }
@@ -31,6 +62,29 @@
         @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
+    <script>
+setInterval(() => {
+    const h = document.createElement("div");
+    h.textContent = "❤️";
+    h.style.cssText = `
+        position: fixed; 
+        left: ${Math.random() * 100}vw; 
+        font-size: ${Math.random() * 30 + 10}px; 
+        top: 100vh; 
+        pointer-events: none; 
+        opacity: .7;
+        animation: floatUp 6s linear;
+    `;
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}, 700);
+</script>
+<style>
+@keyframes floatUp {
+    to { transform: translateY(-150vh); opacity: 0; }
+}
+</style>
+
 <body>
 
     <div class="container">
@@ -98,10 +152,12 @@
                 <div id="final-letter" class="letter-content">
                     <h3 style="color: #ff4d6d;">Para mi hermosa Anny:</h3>
                     <p>Anny, mi vida...</p>
-                    <p>Te amo mucho mi cielo, espero que pasemos juntos todos los San Valentines de la vida y todas las celebraciones posibles.</p>
                     <p>Me haz hecho la persona más feliz del mundo desde que te conocí, desde que fuimos al bendito Denny's jajajaja y créeme que a tu lado se me olvida todo lo demás.</p>
+                    <p>Mi vida, mi cielo, mi amor, no son palabras dichas en vano, son por que me di cuenta que contigo puedo ser yo mismo, puedo ser Leo, más que solo Cassio</p>
                     <p>Yo sé que en persona me es díficil decir estas cosas, pero te prometo que cada día intento demostrarte mi amor.</p>
+                    <p>Te amo mucho mi cielo, espero que pasemos juntos todos los San Valentines de la vida y todas las celebraciones posibles.</p>
                     <p>Por eso es que quiero estar siempre a tu lado, quiero poder abrazarte siempre y poder darte muchos besitos.</p>
+                    <p>Y si algún día dudas de lo que significas para mí, vuelve a leer esto.</p>
                     <p></p>
                     <p><b>¡Feliz San Valentín! ❤️</b></p>
                     <p align="right"><i>Con todo mi amor, tu Leoncito.</i></p>
