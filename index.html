@@ -37,8 +37,8 @@
         <div id="step1" class="section active">
             <img src="https://yt3.googleusercontent.com/5VnfuQQjvC2uIfDR_R6lzSCJphVi2jTMGV71Xe24lUMW56nKa7Pu3CCCP3a7Po-G2J51xMb8tA=s900-c-k-c0x00ffffff-no-rj" class="bounce-img" width="180">
             <h1>¡Hola mi amor! ❤️</h1>
-            <h2>¡Feliz dia de San Valentin!</h2>
-            <p>¿Responderias las siguientes preguntas para mi?</p>
+            <h2>¡Feliz día de San Valentín!</h2>
+            <p>¿Responderías las siguientes preguntas para mí?</p>
             <button onclick="nextStep(2)">A ver, dime... ✨</button> 
         </div>
 
@@ -57,7 +57,7 @@
         </div>
 
         <div id="step4" class="section">
-            <h2>¿Quiéres ser mi San Valentin? 🥺</h2>
+            <h2>¿Quiéres ser mi San Valentín? 🥺</h2>
             <div style="position: relative; height: 150px;">
                 <button id="btn-si" onclick="celebrate()">¡OBVIO SÍ! ❤️</button>
                 <button id="btn-no" onmouseover="moveNo()" onclick="moveNo()" style="width: auto;">No, paso 💅</button>
@@ -98,11 +98,10 @@
                 <div id="final-letter" class="letter-content">
                     <h3 style="color: #ff4d6d;">Para mi hermosa Anny:</h3>
                     <p>Anny, mi vida...</p>
-                    <p>Te amo mucho mi cielo, espero que pasemos juntos todos los San Valentines de la vida y todas las celebraciones posibles</p>
-                    <p>me haz hecho la persona más feliz del mundo desde que te conocí, desde que fuimos al bendito Denny's jajajaja</p>
-                    <p>y créeme que a tu lado se me olvida todo lo demás.</p>
-                    <p>Yo se que en persona me es díficil decir estas cosas, pero te prometo que cada día intento demostrarte mi amor</p>
-                    <p>por eso es que quiero estar siempre a tu lado, quiero poder abrazarte siempre y poder darte muchos besitos.</p>
+                    <p>Te amo mucho mi cielo, espero que pasemos juntos todos los San Valentines de la vida y todas las celebraciones posibles.</p>
+                    <p>Me haz hecho la persona más feliz del mundo desde que te conocí, desde que fuimos al bendito Denny's jajajaja y créeme que a tu lado se me olvida todo lo demás.</p>
+                    <p>Yo sé que en persona me es díficil decir estas cosas, pero te prometo que cada día intento demostrarte mi amor.</p>
+                    <p>Por eso es que quiero estar siempre a tu lado, quiero poder abrazarte siempre y poder darte muchos besitos.</p>
                     <p></p>
                     <p><b>¡Feliz San Valentín! ❤️</b></p>
                     <p align="right"><i>Con todo mi amor, tu Leoncito.</i></p>
@@ -118,17 +117,36 @@
             document.getElementById('step' + step).classList.add('active');
             window.scrollTo(0,0);
         }
-        function moveNo() {
-            const btnNo = document.getElementById('btn-no');
-            const btnSi = document.getElementById('btn-si');
-            noScale -= 0.1; siScale += 0.15;
-            if (noScale < 0.2) noScale = 0;
-            btnNo.style.transform = `scale(${noScale})`;
-            btnSi.style.transform = `scale(${siScale})`;
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 150);
-            btnNo.style.position = 'fixed'; btnNo.style.left = x + 'px'; btnNo.style.top = y + 'px';
+function moveNo() {
+    const btnNo = document.getElementById('btn-no');
+    const btnSi = document.getElementById('btn-si');
+    const rectSi = btnSi.getBoundingClientRect(); // Esto mide dónde está el botón SI
+
+    noScale -= 0.1;
+    siScale += 0.15;
+    if (noScale < 0.2) noScale = 0;
+    
+    btnNo.style.transform = `scale(${noScale})`;
+    btnSi.style.transform = `scale(${siScale})`;
+
+    let x, y;
+    let safe = false;
+
+    // Este bucle busca un lugar donde NO choque con el botón SI
+    while (!safe) {
+        x = Math.random() * (window.innerWidth - 100);
+        y = Math.random() * (window.innerHeight - 150);
+
+        // Si la nueva posición está lejos del botón SI, es segura
+        if (Math.abs(x - rectSi.left) > 150 || Math.abs(y - rectSi.top) > 150) {
+            safe = true;
         }
+    }
+
+    btnNo.style.position = 'fixed';
+    btnNo.style.left = x + 'px';
+    btnNo.style.top = y + 'px';
+}
         function celebrate() {
             confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
             setTimeout(() => { nextStep(5); }, 500);
